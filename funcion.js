@@ -1,9 +1,15 @@
+/*input type="button" id="dos" value="3" onclick="return buscar(this)" />            
+            <input type="button" id="dos" value="4" onclick="return buscar(this)" />            
+            <input type="button" id="dos" value="5" onclick="return buscar(this)" />*/
+
 function buscar(nombre)
-{
+{   
+    var i=0,con;
     var primera = nombre.value;
           console.log(primera)
     var titulo=document.getElementById("titulo").value;
     var detalles="";
+
     if(titulo==""){
        
         detalles ="<tr>" +
@@ -20,9 +26,8 @@ function buscar(nombre)
         } 
             xmlhttp.onreadystatechange=function() {
             if(this.readyState ==4 && this.status ==200){
-                var data= JSON.parse(this.responseText);
-               // console.log(data);
-               var con=0;
+            var data= JSON.parse(this.responseText);                
+                     
                 data.Search.forEach(movie => {
                     detalles += "<tr>"+
                     
@@ -32,20 +37,22 @@ function buscar(nombre)
                                "<td>"+ movie.Type+"</td>"+
                                "<td><img src="+ movie.Poster+"></td>"+
                                "</tr>";
-                               con=con+1;
+                               
                               
                                                     
                 });
-                console.log(con)
-                
+              
                 document.getElementById("informacion").innerHTML=detalles;
+               
                 }
-
+                
             }; 
-            xmlhttp.open("POST","http://www.omdbapi.com/?apikey=335d2c95&s="+ titulo +"&plot=full&rows=2&page="+primera,true);
+            console.log("cin"+con)
+            xmlhttp.open("POST","http://www.omdbapi.com/?apikey=335d2c95&s="+ titulo +"&plot=full&rows=2&page=1",true);
+            
             xmlhttp.send();
         }
-    }
+}
 
     function buscarPeli(id){
       var detalles="";
@@ -77,10 +84,24 @@ function buscar(nombre)
                          "</tr>"
               
                 }
-                document.getElementById("informacion").innerHTML=detalles;
+                document.getElementById("detalles").innerHTML=detalles;
 
             }; 
             xmlhttp.open("GET","http://www.omdbapi.com/?apikey=335d2c95&i="+ id +"&plot=full",true);
+            
             xmlhttp.send();
+        }
+      }
+      function siguiente() {
+        if (i < len-1) {
+          i++;
+          displayCD(i);
+        }
+      }
+      
+      function anterior() {
+        if (i > 0) {
+          i--;
+          displayCD(i);
         }
       }

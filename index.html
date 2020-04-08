@@ -5,49 +5,61 @@
         <title>Full peliculas para esta cuarentena </title>
         <link rel="stylesheet" href="primera.css" type="text/css">
         <script type="text/javascript" src=funcion.js></script>
+       
         </head>
     <body>
-        <div id="uno">
+       
+        <div class="uno">
+           
+            <img  src="Imagen/imagen.jpg" alt="" >
             <h1>Full Peliculas HD para esta cuarentena
                 Animate!
             </h1>
-            
-            
             <input type="text" name="" id="titulo" />
             <input type="button" name="" id="buscar" value="Buscar" onclick="return buscar(this)">
+            <input type="button" id="uno" value="+" onclick="siguiente()" />
+            <input type="button" id="dos" value="-" onclick="anterior ()" />            
             
         </div>
-        <div id="paginador">
-            <input type="button" id="uno" value="1" onclick="return buscar(this)" />
-            <input type="button" id="dos" value="2" onclick="return buscar(this)" />            
-            <input type="button" id="dos" value="3" onclick="return buscar(this)" />            
-            <input type="button" id="dos" value="4" onclick="return buscar(this)" />            
-            <input type="button" id="dos" value="5" onclick="return buscar(this)" />
-        </div>
-        <table>
+        <div class=" contenedor2">
+
+            <h1>Peliculas Disponibles</h1>
+            <table>
+                <tr>
+                    <td>
+                
+                    
+                <table id="cabecera" class="dat">
+                     
+                        <thead>
+                            <tr> 
+                            <th></th>
+                            <th> Title</th>
+                            <th>Year</th>
+                            <th>Type</th>
+                            <th  id="imagen">Imagen</th>
+                        </tr>
+                        </thead>
+                        
+                    <tbody id="informacion">
+    
+    
+                
+                    </tbody>
+                    
+                </table>
+                   
+            </td>
+            </tr>
             <tr>
                 <td>
+                    <div  id="detalles"></div>
+                </td>
 
-                
-            <table id="cabecera" class="dat">
-                <tr>
-                    <th></th>
-                    <th> titulo</th>
-                    <th>Año</th>
-                    <th>Tipo</th>
-                    <th>Imagen</th>
-                </tr>
-                <tbody id="informacion">
-
-
-            
-                </tbody>
-                <tbody id="segunda"></tbody>
-            </table>
-               
-        </td>
-        </tr>
-        </table>    
+            </tr>
+            </table>    
+          
+        </div>
       
     </body>
 </html>
