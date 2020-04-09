@@ -24,7 +24,7 @@ function buscar(nombre)
             xmlhttp.onreadystatechange=function() {
             if(this.readyState ==4 && this.status ==200){
             var data= JSON.parse(this.responseText);                
-                       
+                       var total=data.totalResult;
                 data.Search.forEach(movie => {
                     detalles += "<tr>"+
                     
@@ -66,20 +66,24 @@ function buscar(nombre)
             xmlhttp.onreadystatechange=function() {
             if(this.readyState ==4 && this.status ==200){
                 var data= JSON.parse(this.responseText);
-                console.log(data);               
+               
+                      
                 var x;  
-                detalles+=data.Poster;
+            
                     for(x in data){
                         detalles+=                       
-                         "<tr>"+data[x] +"</tr>" +"<br>" ;
-                         "</tr>"                            
+                         "<tr>"+data[x] +"</tr>" +"<br>" 
+                         "</tr>"                     ;       
                          }
                       
                
                 
                          
                 }
-                document.getElementById("informacion").innerHTML=detalles;
+                var imagen= "<img src=\'"+data.Poster+"'/ ></img> "     
+                
+                document.getElementById("detalles").innerHTML=detalles;
+                document.getElementById("imagen").innerHTML=imagen;
 
             }; 
             xmlhttp.open("GET","http://www.omdbapi.com/?apikey=335d2c95&i="+ id +"&plot=full",true);
