@@ -71,20 +71,19 @@ function buscar(nombre)
             if(this.readyState ==4 && this.status ==200){
                 var data= JSON.parse(this.responseText);
                 console.log(data);
-                var x;      
+                var x;  
                 
-                         for(x in data){
-                            "<tr>"
-                            detalles+=  "<tr>"+data[x] +"</tr>" +"<br>" ;
-                            "</tr>"
-                            
+                    for(x in data){
+                        detalles+=                       
+                         "<tr>"+data[x] +"</tr>" +"<br>" ;
+                         "</tr>"                            
                          }
-                         "<tr>"
-                         detalles+=  "<tr>"+Object.keys(data)+"</tr>" +"<br>" ;
-                         "</tr>"
-              
+                      
+               
+                console.log(Object.values(data));
+                         
                 }
-                document.getElementById("detalles").innerHTML=detalles;
+                document.getElementById("informacion").innerHTML=detalles;
 
             }; 
             xmlhttp.open("GET","http://www.omdbapi.com/?apikey=335d2c95&i="+ id +"&plot=full",true);
